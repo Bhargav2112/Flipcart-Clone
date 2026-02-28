@@ -11,13 +11,13 @@ import { Loader2 } from 'lucide-react';
 export default function Home() {
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['products-home'],
-    queryFn: () => base44.entities.Product.filter({ status: 'approved' }, '-created_date', 1000),
+    queryFn: () => base44.entities.Product.filter({ status: 'approved' }, '-created_date', 300),
   });
 
-  const deals = products.filter(p => p.is_deal);
-  const featured = products.filter(p => p.is_featured);
-  const bestsellers = products.filter(p => p.is_bestseller);
-  const trending = products.filter(p => p.is_trending);
+  const deals = products.filter(p => p.is_deal).slice(0, 8);
+  const featured = products.filter(p => p.is_featured).slice(0, 8);
+  const bestsellers = products.filter(p => p.is_bestseller).slice(0, 8);
+  const trending = products.filter(p => p.is_trending).slice(0, 8);
 
   const handleWishlistToggle = async (product) => {
     const authed = await base44.auth.isAuthenticated();

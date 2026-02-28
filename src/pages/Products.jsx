@@ -33,6 +33,12 @@ export default function Products() {
   }, [categoryQ]);
   const [sortBy, setSortBy] = useState('popularity');
   const [viewMode, setViewMode] = useState('grid');
+  const [visibleCount, setVisibleCount] = useState(24);
+
+  // Reset pagination when filters, sort, or search change
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [searchQ, filterQ, filters, sortBy]);
 
   const { data: products = [], isLoading } = useQuery({
     queryKey: ['products-listing'],
@@ -164,10 +170,24 @@ export default function Products() {
               <p className="text-gray-400 text-sm mt-1">Try adjusting your filters or search query</p>
             </div>
           ) : (
-            <div className={viewMode === 'grid' ? 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2' : 'space-y-2'}>
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} onWishlistToggle={handleWishlistToggle} />
-              ))}
+            <div className="space-y-6">
+              <div className={viewMode === 'grid' ? 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2' : 'space-y-2'}>
+                {filteredProducts.slice(0, visibleCount).map((product) => (
+                  <ProductCard key={product.id} product={product} onWishlistToggle={handleWishlistToggle} />
+                ))}
+              </div>
+              
+              {visibleCount < filteredProducts.length && (
+                <div className="flex justify-center mt-6 pb-6">
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setVisibleCount(v => v + 24)}
+                    className="w-[200px] border-[#2874F0] text-[#2874F0] hover:bg-blue-50"
+                  >
+                    Load More Products
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </div>
