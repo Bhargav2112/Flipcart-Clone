@@ -1,0 +1,30 @@
+{
+  "name": "Coupon",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "discount_percent": {
+      "type": "number"
+    },
+    "max_discount": {
+      "type": "number"
+    },
+    "min_order_value": {
+      "type": "number"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "code",
+    "discount_percent"
+  ]
+}

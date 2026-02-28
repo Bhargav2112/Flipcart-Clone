@@ -1,0 +1,52 @@
+{
+  "name": "Address",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address_line1": {
+      "type": "string"
+    },
+    "address_line2": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "is_default": {
+      "type": "boolean",
+      "default": false
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "home",
+        "work",
+        "other"
+      ],
+      "default": "home"
+    }
+  },
+  "required": [
+    "user_email",
+    "name",
+    "phone",
+    "address_line1",
+    "city",
+    "state",
+    "pincode"
+  ]
+}

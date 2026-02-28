@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --flipkart-blue: #2874F0;
+  --flipkart-yellow: #FFE500;
+  --flipkart-orange: #FB641B;
+  --flipkart-dark: #212121;
+  --flipkart-gray: #878787;
+  --flipkart-light: #F1F3F6;
+  --flipkart-green: #388E3C;
+  --flipkart-red: #FF6161;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 219 87% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 219 87% 55%;
+    --radius: 0.5rem;
+  }
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F1F3F6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
+
+/* Star rating */
+.star-filled { color: #FF9F00; }
+.star-empty { color: #E0E0E0; }
+
+/* Flipkart-style animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Product card hover */
+.product-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.product-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* Banner gradient overlay */
+.banner-overlay {
+  background: linear-gradient(135deg, rgba(40, 116, 240, 0.9) 0%, rgba(30, 60, 120, 0.8) 100%);
+}

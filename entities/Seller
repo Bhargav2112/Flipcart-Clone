@@ -1,0 +1,52 @@
+{
+  "name": "Seller",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "gst_number": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "suspended"
+      ],
+      "default": "pending"
+    },
+    "total_products": {
+      "type": "number",
+      "default": 0
+    },
+    "total_orders": {
+      "type": "number",
+      "default": 0
+    },
+    "total_revenue": {
+      "type": "number",
+      "default": 0
+    },
+    "rating": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "business_name",
+    "email"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Category",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Category name"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-friendly slug"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon name from lucide-react"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Category image URL"
+    },
+    "parent_category": {
+      "type": "string",
+      "description": "Parent category name for subcategories"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Product name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Product description"
+    },
+    "price": {
+      "type": "number",
+      "description": "Current price"
+    },
+    "original_price": {
+      "type": "number",
+      "description": "Original MRP price"
+    },
+    "discount_percent": {
+      "type": "number",
+      "description": "Discount percentage"
+    },
+    "category": {
+      "type": "string",
+      "description": "Category name"
+    },
+    "brand": {
+      "type": "string",
+      "description": "Brand name"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product image URLs"
+    },
+    "thumbnail": {
+      "type": "string",
+      "description": "Main thumbnail image URL"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Average rating (1-5)"
+    },
+    "rating_count": {
+      "type": "number",
+      "description": "Number of ratings"
+    },
+    "specifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Product specifications"
+    },
+    "stock": {
+      "type": "number",
+      "description": "Available stock quantity"
+    },
+    "seller_email": {
+      "type": "string",
+      "description": "Seller's email"
+    },
+    "seller_name": {
+      "type": "string",
+      "description": "Seller business name"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_deal": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_bestseller": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_trending": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending"
+    },
+    "delivery_days": {
+      "type": "number",
+      "default": 5,
+      "description": "Estimated delivery days"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "price",
+    "category"
+  ]
+}

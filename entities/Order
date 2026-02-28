@@ -1,0 +1,121 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_number": {
+      "type": "string"
+    },
+    "user_email": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "product_name": {
+            "type": "string"
+          },
+          "product_thumbnail": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "seller_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "subtotal": {
+      "type": "number"
+    },
+    "discount": {
+      "type": "number"
+    },
+    "delivery_fee": {
+      "type": "number"
+    },
+    "total": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "placed",
+        "confirmed",
+        "shipped",
+        "out_for_delivery",
+        "delivered",
+        "cancelled",
+        "returned"
+      ],
+      "default": "placed"
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "cod",
+        "upi",
+        "card",
+        "netbanking",
+        "wallet"
+      ],
+      "default": "cod"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "paid",
+        "refunded"
+      ],
+      "default": "pending"
+    },
+    "shipping_address": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address_line1": {
+          "type": "string"
+        },
+        "address_line2": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        }
+      }
+    },
+    "coupon_code": {
+      "type": "string"
+    },
+    "estimated_delivery": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "user_email",
+    "items",
+    "total"
+  ]
+}
